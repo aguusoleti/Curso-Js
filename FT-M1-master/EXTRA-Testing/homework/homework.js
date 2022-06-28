@@ -8,26 +8,22 @@ function checkSeatStatus(variable,variable2) {
         [{type: 'ECONOMIC', booked: false}, {type: 'ECONOMIC', booked: true}, {type: 'ECONOMIC', booked: false}, {type: 'ECONOMIC', booked: false}]
       ];
 
-if (typeof variable !== 'string'){
-    throw new TypeError ('First parameter is not a string')
-}
+      
+      console.log('hola');
+      if (typeof variable !== 'string') throw new TypeError ('First parameter is not a string')
+      if(typeof variable2 !== 'number')throw new TypeError('Second parameter is not a number')
+      
 
-if(typeof variable2 !== 'number')
-{
-    throw new TypeError('Second parameter is not a number')
-}
-
+      const numberRow = getRowNumber(variable);
+    const layoutRows = layout[numberRow];
+    const seat = layoutRows[variable2];
+    return seat.booked;
 }
 function getRowNumber(valor){
     return valor.charCodeAt(0)-65;
     
-    // if (valor.charCodeAt(0) - 65 === 0)
-    // {
-    //     return 0
-    // }else if (valor.charCodeAt(0) - 65 === 2){
-    //     return 2
-    // }
 }
+
 module.exports = {
   checkSeatStatus,
   getRowNumber

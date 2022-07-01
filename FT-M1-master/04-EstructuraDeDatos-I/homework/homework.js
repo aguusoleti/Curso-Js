@@ -15,9 +15,14 @@ Como ejercicio adicional y completamente opcional, al terminar de resolver este 
 */
 
 function nFactorial(n) {
+  if(n===1) return 1
+  return n*nFactorial(n-1)
 }
 
 function nFibonacci(n) {
+  if(n===1 || n===0 )return n
+  console.log(n)
+  return  nFibonacci(n-1)+nFibonacci(n-2)
 }
 
 /*

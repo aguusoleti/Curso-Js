@@ -35,7 +35,19 @@ Pueden utilizar class o función constructora.
 */
 
 function Queue() {
+  this.array =[];
+}
+let q1 = new Queue();
 
+Queue.prototype.size = function (){
+  return this.array.length;
+}
+Queue.prototype.enqueue = function (valor){
+  return this.array.push(valor);
+}
+Queue.prototype.dequeue = function (){
+  //if(this.array.length === 0) return undefined;
+  return this.array.shift();
 }
 
 // No modifiquen nada debajo de esta linea

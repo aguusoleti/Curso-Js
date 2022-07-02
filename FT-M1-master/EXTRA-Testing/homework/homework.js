@@ -23,8 +23,26 @@ function getRowNumber(valor){
     return valor.charCodeAt(0)-65;
     
 }
+function suma(n){
+if (n === 1) return 1
 
+return n + suma(n-1)
+}
+function natural(n){
+  if (n===0) return true
+  if (n!= 0 && n<0)return false
+  return natural(n-1)
+}
+function resta (n){
+  if (n===0)return 0
+  let a=n;
+  console.log(a)
+  return   resta(-n-1) +a
+}
 module.exports = {
   checkSeatStatus,
-  getRowNumber
+  getRowNumber,
+  suma,
+  natural,
+  resta,
 }

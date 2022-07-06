@@ -45,8 +45,9 @@ return node
 }
 LinkedList.prototype.remove = function(){
   let current  = this.head;
-  if(this.length===0) return null;
-  if(this.length===1){
+  if(current===null) return null;
+
+  if(!current.next){
     let borrado = current.value;
     this.head === null;
     this.length--;
@@ -57,11 +58,25 @@ LinkedList.prototype.remove = function(){
       }
       let borrado =current.next.value;
       current.next =null;
+      this.length--;
      // if(!this.head) return null
       return borrado;
   }
 
-LinkedList.prototype.search = function(){}
+
+LinkedList.prototype.search = function(value){
+  let current=this.head 
+  if(this.head === null ) return null
+  while (current){
+   if(current.value === value) return current.value;
+   else if (typeof value === 'function'){
+     if(value(current.value)){
+      return current.value
+     }
+   }
+   current=current.next
+      }
+}
 
 
 
@@ -87,8 +102,18 @@ con el nombre 'instructora'; luego, invocando set('instructora', 'Ani'), se alma
 (determinado al hashear la clave)
 */
 
-function HashTable() {}
+function HashTable() {
 
+}
+HashTable.prototype.set= function(){
+  if (typeof key != 'string') return 'error';
+
+}
+HashTable.prototype.get= function(){
+
+}
+HashTable.prototype.hasKey= function(){
+}
 // No modifiquen nada debajo de esta linea
 // --------------------------------
 

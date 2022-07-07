@@ -17,40 +17,42 @@ Implementar la clase LinkedList, definiendo los siguientes métodos:
 
 function LinkedList() {
 this.head=null;
-this.length=0;
+this._length=0;
 }
-
 function Node(value) {
   this.value = value;
   this.next = null;
 }
-let list= new LinkedList();
+
+//let list= new LinkedList();
 
 LinkedList.prototype.add = function(data){
-  let node= new Node(data);
- let  current = this.head;
+let node= new Node(data);
+let current = this.head;
   
  if(this.head === null){
   this.head= node
-  this.length++;
+  this._length++;
   return node
 }
 while (current.next){
   current= current.next;
 }
 current.next =node;
-
+this._length++;
 
 return node
 }
 LinkedList.prototype.remove = function(){
   let current  = this.head;
-  if(current===null) return null;
+  if(this.head===null) return this.head;
 
   if(!current.next){
     let borrado = current.value;
     this.head === null;
-    this.length--;
+    console.log(this._length)
+    console.log(this.head)
+    this._length--;
     return borrado;
   }
     while (current.next.next){
@@ -58,10 +60,27 @@ LinkedList.prototype.remove = function(){
       }
       let borrado =current.next.value;
       current.next =null;
-      this.length--;
+      this._length--;
      // if(!this.head) return null
       return borrado;
-  }
+    }
+  // var current=this.head;
+  // if(this._length===0)return null;
+  // if(this._length===1){
+  //   let aux = current.value;
+  //   this.head=null;
+  //   this._length--;
+  //   return aux;
+  // }
+  // while(current.next.next){
+  //   current=current.next;
+  // }
+  // let borrado = current.next.value;
+  // current.next = null;
+  // this._length--;
+  // console.log(borrado)
+  // return borrado;
+  // };
 
 
 LinkedList.prototype.search = function(value){
@@ -76,6 +95,7 @@ LinkedList.prototype.search = function(value){
    }
    current=current.next
       }
+  return null
 }
 
 
@@ -102,7 +122,7 @@ con el nombre 'instructora'; luego, invocando set('instructora', 'Ani'), se alma
 (determinado al hashear la clave)
 */
 
-function HashTable() {
+ function HashTable() {
 
 }
 HashTable.prototype.set= function(){
@@ -112,8 +132,8 @@ HashTable.prototype.set= function(){
 HashTable.prototype.get= function(){
 
 }
-HashTable.prototype.hasKey= function(){
-}
+HashTable.prototype.hasKey= function(){}
+
 // No modifiquen nada debajo de esta linea
 // --------------------------------
 

@@ -44,43 +44,25 @@ this._length++;
 return node
 }
 LinkedList.prototype.remove = function(){
-  let current  = this.head;
-  if(this.head===null) return this.head;
-
-  if(!current.next){
-    let borrado = current.value;
-    this.head === null;
-    console.log(this._length)
-    console.log(this.head)
+  
+  var current=this.head;
+  if(this._length===0)return null;
+  if(this._length===1){
+    let aux = current.value;
+    this.head=null;
     this._length--;
-    return borrado;
+    return aux;
   }
-    while (current.next.next){
-       current =current.next
-      }
-      let borrado =current.next.value;
-      current.next =null;
-      this._length--;
-     // if(!this.head) return null
-      return borrado;
-    }
-  // var current=this.head;
-  // if(this._length===0)return null;
-  // if(this._length===1){
-  //   let aux = current.value;
-  //   this.head=null;
-  //   this._length--;
-  //   return aux;
-  // }
-  // while(current.next.next){
-  //   current=current.next;
-  // }
-  // let borrado = current.next.value;
-  // current.next = null;
-  // this._length--;
-  // console.log(borrado)
-  // return borrado;
-  // };
+  while(current.next.next){
+    current=current.next;
+  }
+  let borrado = current.next.value;
+  current.next = null;
+  this._length--;
+  console.log(borrado)
+  return borrado;
+  };
+
 
 
 LinkedList.prototype.search = function(value){
@@ -123,16 +105,35 @@ con el nombre 'instructora'; luego, invocando set('instructora', 'Ani'), se alma
 */
 
  function HashTable() {
+this.numBuckets = 35;
+this.buckets = []
+}
+HashTable.prototype.hash = function(input){
+  let a=0
+if (input.length>0){
+  for(var i=0; i<input.length;i++){
+    a+=input.charCodeAt(i)
+  }
+}
+return a%this.numBuckets;
+}
+HashTable.prototype.set= function(key,value){
+  if(typeof key != "string") throw new TypeError ('Keys must be strings')
+ let i=this.hash(key)
+  if(this.buckets[i]=== undefined){
+this.buckets[i]={};
+  }
+  this.buckets[i][key]= value
 
 }
-HashTable.prototype.set= function(){
-  if (typeof key != 'string') return 'error';
-
+HashTable.prototype.get= function(key){
+let i = this.hash(key);
+if(this.buckets[i] !== undefined) return this.buckets[i][key]
 }
-HashTable.prototype.get= function(){
-
+HashTable.prototype.hasKey= function(key){
+  let i = this.hash(key);
+return this.buckets[i].hasOwnProperty(key) ? true:false 
 }
-HashTable.prototype.hasKey= function(){}
 
 // No modifiquen nada debajo de esta linea
 // --------------------------------

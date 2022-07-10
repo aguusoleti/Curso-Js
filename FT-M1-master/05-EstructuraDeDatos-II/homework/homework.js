@@ -69,8 +69,8 @@ LinkedList.prototype.search = function(value){
   let current=this.head 
   if(this.head === null ) return null
   while (current){
-   if(current.value === value) return current.value;
-   else if (typeof value === 'function'){
+   if(current.value === value) return value;
+   if (typeof value === 'function'){
      if(value(current.value)){
       return current.value
      }

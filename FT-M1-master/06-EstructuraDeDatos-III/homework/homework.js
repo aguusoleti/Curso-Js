@@ -11,8 +11,8 @@
   El ábrol utilizado para hacer los tests se encuentra representado en la imagen bst.png dentro del directorio homework.
 */
 
-function BinarySearchTree(data) {
-  this.data=data;
+function BinarySearchTree(value) {
+  this.value=value;
   this.rigth=null;
   this.left=null;
 }
@@ -23,17 +23,28 @@ function BinarySearchTree(data) {
 //   this.left=null;
 // }
 BinarySearchTree.prototype.size = function (){}
-BinarySearchTree.prototype.insert = function (data){
-  if(data>this.data){
-    if(this.rigth=== null){ this.rigth=new BinarySearchTree(data)}
-    else {this.rigth === this.rigth.insert(data)}
+BinarySearchTree.prototype.insert = function (value){
+  if(value>this.value){
+    if(this.rigth=== null){ this.rigth=new BinarySearchTree(value)}
+    else {this.rigth === this.rigth.insert(value)}
   }else{
-    if(this.left=== null){ this.left=new BinarySearchTree(data)}
-    else (this.left === this.left.insert(data))
+    if(this.left=== null){ this.left=new BinarySearchTree(value)}
+    else (this.left === this.left.insert(value))
   }
 
 }
-BinarySearchTree.prototype.contains = function (){}
+BinarySearchTree.prototype.contains = function ( value){
+  if (this.value === value) {return true}
+  if(value  > this.value){
+    if(this.rigth === null){ return false;}
+    else return this.rigth.contains(value)}
+  else{
+    if(value < this.value){
+      
+      if(this.left === null){ return false;}
+      else return this.left.contains(value)}
+  }
+}
 BinarySearchTree.prototype.depthFirstForEach = function (){}
 BinarySearchTree.prototype.breadthFirstForEach = function (){}
 

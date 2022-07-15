@@ -7,6 +7,26 @@ function factorear(num) {
   // Ej: factorear(180) --> [1, 2, 2, 3, 3, 5] Ya que 1x2x2x3x3x5 = 180 y son todos números primos
   // Tu código:
 
+  //  180/2 =90   num%2 = 0 ? num/2
+  //  90/2=45
+  //  45/3=15
+  //  15/3=5
+  //  5/5 =1
+
+
+  let newArray=[1];
+  let i=2;
+  while( num%i ===0){
+  if(num%i === 0){
+    newArray.push(i)
+    num /= i;
+    console.log(num)
+  }
+  }
+  i++;
+  console.log(newArray)
+  return  factorear (num/i)
+
 }
 
 function bubbleSort(array) {

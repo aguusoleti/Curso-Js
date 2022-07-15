@@ -13,36 +13,34 @@
 
 function BinarySearchTree(value) {
   this.value=value;
-  this.rigth=null;
+  this.right=null;
   this.left=null;
 }
-BinarySearchTree.prototype.size = function (){
-   if(this.rigth === null && this.left === null) return 1
-   if (this.rigth !== null && this.left === null)return 1 + this.rigth.size()
-   if (this.rigth === null && this.left !== null)return 1 + this.left.size()
-   if (this.rigth !== null && this.left !== null)return 1 + this.left.size() + this.rigth.size()
-}
 BinarySearchTree.prototype.insert = function (value){
-  if(value>this.value){
-    if(this.rigth === null){ 
-      this.rigth = new BinarySearchTree(value)
-    }else {
-      this.rigth.insert(value)}
+  if (this.value > value) {
+    if(this.left === null) this.left = new BinarySearchTree(value)
+    else this.left.insert(value);
+    
+  }else  if(this.value < value){
+    if(this.right === null)this.right = new BinarySearchTree(value)
+    else this.right.insert(value)
   }
-if (value < this.value) {
-    if(this.left=== null){ 
-      this.left=new BinarySearchTree(value)
-    }
-    else{
-      this.left.insert(value)}
-    }
+  
+}
+
+let binarytree= new BinarySearchTree(20)
+BinarySearchTree.prototype.size = function (){
+   if (this.left === null && this.right === null)return 1
+   if (this.left === null && this.right !== null)return 1 + this.right.size()
+   if (this.left !== null && this.right === null)return 1 + this.left.size()
+   if (this.left !== null && this.right !== null)return 1 + this.left.size() + this.right.size()
 }
 BinarySearchTree.prototype.contains = function (value){
   
   if (this.value === value) return true
   if(value  > this.value){
-    if(this.rigth === null) return false;
-    else return this.rigth.contains(value)
+    if(this.right === null) return false;
+    else return this.right.contains(value)
   }
   
     if(value < this.value){
@@ -57,22 +55,28 @@ if (orden === 'pre-order'){
 // root - izq - der
 cb(this.value)
 if(this.left !== null) this.left.depthFirstForEach(cb,orden)
-if(this.rigth !== null) this.rigth.depthFirstForEach(cb,orden)
+if(this.right !== null) this.right.depthFirstForEach(cb,orden)
 }else if (orden === 'post-order'){
   //izq - der - root
   if(this.left !== null)this.left.depthFirstForEach(cb,orden)
-  if(this.rigth !== null) this.rigth.depthFirstForEach(cb,orden)
+  if(this.right !== null) this.right.depthFirstForEach(cb,orden)
   cb(this.value)
   
 }else {
 // in-order   izq - root - der 
 if(this.left !== null ) this.left.depthFirstForEach(cb,orden)
 cb(this.value)
-if(this.rigth !== null) this.rigth.depthFirstForEach(cb,orden)
+if(this.right !== null) this.right.depthFirstForEach(cb,orden)
 }
 
 }
-BinarySearchTree.prototype.breadthFirstForEach = function (){}
+BinarySearchTree.prototype.breadthFirstForEach = function (cb, array=[]){
+    if (this.left !== null) array.push(this.left)
+    if (this.right !== null) array.push(this.right)
+    cb (this.value)
+
+    if(array.length >0 )array.shift().breadthFirstForEach(cb,array)
+}
 
 // No modifiquen nada debajo de esta linea
 // --------------------------------

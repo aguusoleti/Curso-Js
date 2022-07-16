@@ -1,0 +1,18 @@
+{
+  "name": "jmarket",
+  "version": "1.0.0",
+  "description": "Te vamos a brindar los tests preparados, tu tarea es completar el código en cada uno de los archivos como ```01.js``` de tal forma que pasen la mayoría de los tests. Para ejecutar los tests, primero debes ejecutar el comando `npm install` dentro de esta carpeta (CP-M1). Luego, en esta misma carpeta podes ejecutar npm test para correr la totalidad de los tests o si queres ejecutar solo los tests de un ejercicio en praticular podes hacer ```npm t n``` siendo ```n``` el número del ejercicio que queremos ejecutar, por ejemplo npm t 7 para correr los tests asociados al ejercicio número 7.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Jorge Vega",
+  "license": "ISC",
+  "dependencies": {
+    "jest": "^28.1.1"
+  },
+  "directories": {
+    "test": "tests"
+  },
+  "devDependencies": {}
+}

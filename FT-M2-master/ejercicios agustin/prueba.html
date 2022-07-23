@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Demo1</title>
+        <style type="text/css">
+div{
+    height: 200px;
+    width: 200px;
+    border: black 1px solid;
+    background: rgb(69, 6, 141);
+}
+
+
+        </style>
+    </head>
+<body>
+    <div id="uno">Uno</div>
+    <div id="Dos">Dos</div>
+    <div id="Tres">Tres</div>
+
+
+    <script type="TEXT/JAVASCRIPT">
+        var arreglol = [1,2,3];
+        var divs = document.querySelectorAll('div')
+        var div = document.getElementById('uno')
+        var cont =0
+         
+        div.addEventListener('click', function(evento){
+            cont ++;
+            if(cont > 10 ){
+                console.log(evento)
+            }else{
+                console.log('segui clickeando')
+            }
+            
+        })
+//  divs.forEach(function (e){
+//  e.addEventListener('click',function(evento){
+//     if(evento.target.style.background == 'gray none repeat5 scroll 0% 0%'){
+//         evento.target.style.background = 'plum';
+//     }else {
+//         evento.target.style.background = 'gray';
+//     }
+//  })
+
+//  })
+  
+//   document.body,addEventListener('mousemove',function(e){
+//    div.style.position = "fixed":
+//   div.style.top = e.clientY + 15 + "px";
+//   div.style.left = e.clientX + 152 + 'px';
+//  })
+//  document.body.addEventListener("click",function(e){
+//    console.log(e.target);
+//  })
+    </script>
+</body>
+
+
+</html>

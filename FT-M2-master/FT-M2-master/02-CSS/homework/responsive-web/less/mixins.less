@@ -5,6 +5,20 @@
     justify-content: @justify;
     align-items: @align;
 }
-.redondear(@radio:20px){
+.redondear(@radio: 20px){
     border-radius: @radio;
+}
+.boton(){
+    padding: 10px;
+    background-color:@btn-bg-color; 
+    color: #ffffff; 
+    width:min-content;
+    border-radius: 10px; 
+    cursor: pointer;
+    font-size: 20px;
+    border: 1px solid black;
+    &:hover{
+        background-color: white;
+        color:@btn-bg-color ;
+    }
 }

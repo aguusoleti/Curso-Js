@@ -143,7 +143,7 @@ h3,
 h4,
 h5 {
   font-family: 'Russo One', sans-serif;
-  color: #23293B;
+  color: #3b2323;
 }
 h2 {
   font-size: 3.2rem;
@@ -183,6 +183,11 @@ nav ul a {
   font-size: 15px;
   font-style: oblique;
 }
+@media (max-width:500px) {
+  nav ul {
+    width: 10%;
+  }
+}
 footer {
   color: #22283B;
   background: #f4f4f4;
@@ -213,6 +218,15 @@ footer {
   border-radius: 20px;
   height: 100%;
 }
+@media (max-width:500px) {
+  .home .music-images .ondas,
+  .home .music-images .tecnologia {
+    display: none;
+  }
+  .home .music-images .auricular {
+    width: 100%;
+  }
+}
 .home .musica-nueva {
   padding: 15px;
 }
@@ -229,14 +243,51 @@ footer {
   display: flex;
   justify-content: center;
 }
+@media (max-width:500px) {
+  .home .actual {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    padding: 0px;
+  }
+}
 .home .actual .actual-text {
   width: 50%;
+}
+@media (max-width:500px) {
+  .home .actual .actual-text {
+    width: 100%;
+    padding-left: 3px;
+    padding-right: 3px;
+  }
 }
 .home .actual .actual-text h3 {
   margin-bottom: 10px;
 }
 .home .actual .actual-text p {
   margin-bottom: 26px;
+}
+.home .actual .actual-text .btn {
+  padding: 10px;
+  background-color: #22283A;
+  color: #ffffff;
+  width: min-content;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 20px;
+  border: 1px solid black;
+}
+.home .actual .actual-text .btn:hover {
+  background-color: white;
+  color: #22283A;
+}
+@media (max-width:500px) {
+  .home .actual .actual-text .btn {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 10px;
+  }
 }
 .home .actual .actual-img {
   width: 46%;
@@ -246,4 +297,12 @@ footer {
   width: 100%;
   height: auto;
   border-radius: 10px;
+}
+@media (max-width:500px) {
+  .home .actual .actual-img {
+    width: 100%;
+    margin-left: 1px;
+    margin-right: 1px;
+    padding: 3px;
+  }
 }

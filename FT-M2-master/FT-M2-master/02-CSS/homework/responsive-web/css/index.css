@@ -185,7 +185,7 @@ nav ul a {
 }
 @media (max-width:500px) {
   nav ul {
-    width: 10%;
+    width: 100%;
   }
 }
 footer {
@@ -206,6 +206,11 @@ footer {
 }
 .home .intro img {
   border-radius: 20px;
+}
+@media (max-width:500px) {
+  .home .intro img {
+    width: 100%;
+  }
 }
 .home .music-images {
   display: flex;

@@ -9,7 +9,14 @@ var traverseDomAndCollectElements = function(matchFunc, startEl) {
   // usa matchFunc para identificar elementos que matchien
 
   // TU CÓDIGO AQUÍ
-  
+if(matchFunc(startEl)){
+  resultSet.push(startEl)
+}
+for (let i = 0; i < startEl.children.length; i++) {
+  let element = traverseDomAndCollectElements(matchFunc, startEl.children[i]);
+  resultSet = [...resultSet, ...element]
+}  
+return resultSet;
 };
 
 // Detecta y devuelve el tipo de selector
@@ -44,9 +51,7 @@ var matchFunctionMaker = function(selector) {
   } else if (selectorType === "class") {
     matchFunction = function(el){
       let classes = el.classList
-      // classes.forEach(e => { if (`.${e}` === selector)return true;})
-      // return false
-    for (let i=0; i<classes.length;i++){
+      for (let i=0; i<classes.length;i++){
       if (`.${classes[i]}` === selector)return true
     }
     return false

@@ -1,7 +1,7 @@
 import React from 'react';
 import Card from './Card';
 import cities from '../data';
-
+import s from '../components/styles/cards.module.css'
 /* <Card
 max={Cairns.main.temp_max}
 min={Cairns.main.temp_min}
@@ -17,7 +17,7 @@ export default function Cards(props) {
   //console.log(cities)
   
 
-  return <div>{cities.map(value=><Card 
+  return <div className={s.alineacion} >{cities.map(value=><Card 
   
   name = {value.name}
   min = {value.main.temp_min}

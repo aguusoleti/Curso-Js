@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-
-import './App.css';
-import Nav from '../components/Nav.jsx';
+import { Route } from "react-router-dom";
 import Cards from '../components/Cards.jsx';
-
+import Nav from '../components/Nav.jsx';
+import './App.css';
+import About from '../components/About.jsx';
+import City from '../components/City.jsx'
 const apiKey = '4ae2636d8dfbdc3044bede63951a019b';
 
 function App() {
@@ -54,8 +55,27 @@ function App() {
         />
       </div>
       <hr />
+      <Route path={'/'} render ={()=><nav onSearch={onSearch}/>}/>
+      <Route
+       exact 
+       path={'/'} 
+       render={()=><Cards cities={cities} onClose={onClose}/>}
+       />
+        <Route exact path={"about"} render={()=> <About/>}/>
+        <Route patch={"/city/:cityId"} render={({match})=><City cityId={match.params.cityId}/>} />
     </div>
   );
 }
 
 export default App;
+
+
+// route
+
+    // *render-children (si tengo props) si no component
+    // exact
+    // *path
+    // sensitive
+    // stict
+
+    // * SON OBLIGATORIOS   

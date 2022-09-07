@@ -1,0 +1,21 @@
+.posicion{
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+    border-radius: 10px;
+    padding: 15px;
+}
+
+
+.boton{
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+    border-radius: 10px;
+    padding: 15px;
+    background-color: white
+}
+.boton:hover{
+    background-color: black;
+    color: white;
+}

@@ -5,6 +5,9 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+ background:url(../img/RioIslandia.gif);
+ background-size: 100%;
+ color: white;
 }
 
 code {

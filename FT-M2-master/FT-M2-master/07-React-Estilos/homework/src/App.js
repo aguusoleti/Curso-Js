@@ -8,7 +8,7 @@ import data, { Cairns } from './data.js';
 function App() {
   return (
     <div className="App">
-      <div>
+      {/* <div>
         <Card
           max={Cairns.main.temp_max}
           min={Cairns.main.temp_min}
@@ -16,19 +16,19 @@ function App() {
           img={Cairns.weather[0].icon}
           onClose={() => alert(Cairns.name)}
         />
-      </div>
-      <hr />
-      <div>
-        <Cards
-          cities={data}
-        />
-      </div>
+      </div> */}
       <hr />
       <div>
         <SearchBar
           onSearch={(ciudad) => alert(ciudad)}
         />
       </div>
+      <div>
+        <Cards
+          cities={data}
+        />
+      </div>
+      <hr />
     </div>
   );
 }

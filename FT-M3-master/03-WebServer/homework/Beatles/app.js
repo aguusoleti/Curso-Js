@@ -40,15 +40,15 @@ http.createServer(function (req, res) {
     }
   }
 
-  if (req.url = '/') {
+  if (req.url === '/') {
 
-    res.writeHead(200, {'Content-type': 'text/html' })
-    const index = fs.readFileSync(`${__dirname}/index.html`);
+    res.writeHead(200, {'Content-type': 'text/html' });
+    const index = fs.readFileSync(`${__dirname}/index.html`,'utf-8');
     res.end(index);
   }
 
   let findBeatle = req.url.split('/').pop();
-  let foundBeatle = beatles.find(b => {findBeatle === encodeURI(b.name)});
+  let foundBeatle = beatles.find((b) => findBeatle === encodeURI(b.name));
   
    console.log(foundBeatle)
   if (foundBeatle) {
@@ -60,8 +60,8 @@ http.createServer(function (req, res) {
     read = read.replace('{profilePic}', foundBeatle.profilePic);
     // let finalHTML = replaceData(read,foundBeatle);profilePic
     res.end(read);
-  }//  else {
-  //   res.writeHead(404, { 'Content-type': 'text/plain' });
-  //   res.end('No existe el Beatle');
-  // }
+  }  else {
+     res.writeHead(404, { 'Content-type': 'text/plain' });
+     res.end('No existe el Beatle');
+   }
 }).listen(3001, '127.0.0.1'); 

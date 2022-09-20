@@ -3,8 +3,11 @@
 Promises Workshop: construye la libreria de ES6 promises, pledge.js
 ----------------------------------------------------------------*/
 // // TU CÓDIGO AQUÍ:
+function $Promise (executor){
+if(typeof executor !== 'function')throw new TypeError('executor function')
 
 
+}
 
 module.exports = $Promise;
 /*-------------------------------------------------------

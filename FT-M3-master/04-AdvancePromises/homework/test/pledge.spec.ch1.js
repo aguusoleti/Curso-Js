@@ -42,14 +42,14 @@ Chapter 1: Estructura básica y Cambios de Estado
 
 describe('La clase `$Promise`', function(){
 
-  xit('es una función', function(){
+  it('es una función', function(){
     expect( typeof $Promise ).toBe( 'function' );
   });
 
   // El único argumento de un contructor de una promesa es una función llamada
   // el "executor". Vamos a volver a esta función mas adelante.
 
-  xit('puede ser llamado con una argumento de función (el "executor"), devolviendo una nueva instancia de promesa', function(){
+  it('puede ser llamado con una argumento de función (el "executor"), devolviendo una nueva instancia de promesa', function(){
     var executor = function () {};
     var promise = new $Promise(executor);
     expect( promise instanceof $Promise ).toBe( true );
@@ -57,7 +57,7 @@ describe('La clase `$Promise`', function(){
 
   // El chequeo de tipo imita el rigor de promesas reales de ES6
 
-  xit('arroja un error descriptivo si es llamado sin función como argumento', function(){
+  it('arroja un error descriptivo si es llamado sin función como argumento', function(){
     var nonFunctions = [null, 'bonjour', undefined, 452, {}, false];
     nonFunctions.forEach(function (nonFunction) {
       expect(callingNewPromiseWith(nonFunction)).toThrowError(
@@ -91,7 +91,7 @@ describe('Una instancia de promesa', function() {
   // marcar un método como "privado". Comenzando métodos con un `._underscore`
   // es una señal de esto.
 
-  xit('comienza con un estado interno "pending"', function(){
+  it('comienza con un estado interno "pending"', function(){
     expect( promise._state ).toBe( 'pending' );
   });
 
@@ -230,7 +230,7 @@ describe('La función executor', function(){
     executor = jasmine.createSpy();
   });
 
-  xit('es llamada cuando hacemos una nueva $Promise', function(){
+  it('es llamada cuando hacemos una nueva $Promise', function(){
     expect( executor ).not.toHaveBeenCalled();
     var promise = new $Promise(executor); // eslint-disable-line no-unused-vars
     expect( executor ).toHaveBeenCalled();

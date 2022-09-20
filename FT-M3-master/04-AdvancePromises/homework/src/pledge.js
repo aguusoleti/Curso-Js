@@ -7,6 +7,7 @@ function $Promise (executor){
 if(typeof executor !== 'function')throw new TypeError('executor function')
 promise._state= 'pending';
 
+//sddsasd
 }
 
 module.exports = $Promise;

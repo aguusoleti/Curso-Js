@@ -57,6 +57,7 @@ server.get('/posts',(req,res)=>{
     const termPost= posts.filter(p=> p.title.includes(term) || p.contents.includes(term))
     return res.json(termPost);
   }
+  // tu novi te ama mas que no se que
   res.json(term);
 })
 

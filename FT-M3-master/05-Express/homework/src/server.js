@@ -159,6 +159,7 @@ server.delete('/author', (req, res) => {
 
     posts_nuevo= posts.filter((p)=>p.author === author);
     posts= posts.filter((p)=>p.author !== author);
+    
     // posts= posts.filter(p=>{
     //     if(p.author!== author){
     //         return true
@@ -166,6 +167,7 @@ server.delete('/author', (req, res) => {
     //         posts_nuevo.push(p);
     //     }
     // })
+    
      return  res.json(posts_nuevo)
 })
 module.exports = { posts, server };
